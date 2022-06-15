@@ -2,25 +2,24 @@ local cmp = require("cmp")
 
 cmp.setup({
     snippet = {
-	expand = function(args)
+        expand = function(args)
             vim.fn["vsnip#anonymous"](args.body)
-	end,
+        end,
     },
     sources = {
-	{ name = "buffer" },
-	{ name = "nvim_lsp" },
-	{ name = "path" },
+        { name = "buffer" },
+        { name = "nvim_lsp" },
+        { name = "path" },
     },
     mapping = cmp.mapping.preset.insert({
-        ['<CR>'] = cmp.mapping.confirm({ select = true }),
-    }) 
+        ['<CR>'] = cmp.mapping.confirm({ select = false }),
+    })
 })
 
 cmp.setup.cmdline(":", {
-	sources = { name = "cmdline" }
+    sources = { name = "cmdline" }
 })
 
 cmp.setup.cmdline("/", {
-	sources = { name = "buffer" }
+    sources = { name = "buffer" }
 })
-
